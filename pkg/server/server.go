@@ -1,6 +1,7 @@
 package server
 
 import(
+	"log"
 	"net/http"
 	"net/http/cgi"
 
@@ -15,5 +16,12 @@ func Serve(){
 	http.HandleFunc("/user", get(handler.UserGet()))
 
 	// run
+	/* ===== サーバの起動 ===== */
+	log.Println("Server running...")
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatalf("Listen and serve failed. %+v", err)
+	}
+
 	cgi.Serve(nil)
 }

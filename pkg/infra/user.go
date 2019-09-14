@@ -17,7 +17,7 @@ func NewUserRepo() IUserRepo {
 
 func (urepo *userRepo) UserList() ([]string, error) {
 	lcap := 10
-	userList := make([]string, lcap, lcap)
+	userList := make([]string, 0, lcap)
 
 	for i := 0;i < lcap;i++{
 		userName := fmt.Sprintf("Name%d", i)

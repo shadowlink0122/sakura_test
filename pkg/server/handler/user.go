@@ -35,7 +35,7 @@ func UserGet() http.HandlerFunc {
 }
 
 func usersToResponseBody(names []string) GetUserResponse {
-	users := make([]User, len(names), len(names))
+	users := make([]User, 0, len(names))
 	for i, _ := range names {
 		user := User{Name: names[i]}
 		users = append(users, user)
