@@ -1,7 +1,7 @@
 package application
 
 import(
-	"sakura_test/pkg/infra"
+	"github.com/shadowlink0122/sakura_test/pkg/infra"
 )
 
 type IUserApp interface{

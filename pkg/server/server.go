@@ -2,8 +2,8 @@ package server
 
 import(
 	"net/http"
-	"sakura_test/pkg/di"
-	"sakura_test/pkg/handler"
+	"github.com/shadowlink0122/sakura_test/pkg/di"
+	"github.com/shadowlink0122/sakura_test/pkg/handler"
 )
 
 func Serve(){

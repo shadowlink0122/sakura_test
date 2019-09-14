@@ -3,8 +3,8 @@ package handler
 import(
 	"log"
 
-	"sakura_test/pkg/di"
-	"sakura_test/pkg/server/response"
+	"github.com/shadowlink0122/sakura_test/pkg/di"
+	"github.com/shadowlink0122/sakura_test/pkg/server/response"
 )
 
 type UserGetResponse struct{

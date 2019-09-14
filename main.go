@@ -3,7 +3,7 @@ package main
 import(
 	"fmt"
 	"net/http/cgi"
-	"sakura_test/pkg/server"
+	"github.com/shadowlink0122/sakura_test/pkg/server"
 )
 
 func main(){
