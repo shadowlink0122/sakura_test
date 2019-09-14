@@ -1,7 +1,11 @@
 package infra
 
+import(
+	"fmt"
+)
+
 type IUserRepo interface{
-	UserList ([]User, error)
+	UserList() ([]User, error)
 }
 
 type userRepo struct{
@@ -15,9 +19,9 @@ type User struct{
 	Name string `json:"name"`
 }
 
-func (urepo *userRepo) UserList ([]User, error) {
+func (urepo *userRepo) UserList() ([]User, error) {
 	lcap := 10
-	userList := make([]UserList, lcap, lcap)
+	userList := make([]User, lcap, lcap)
 
 	for i := 0;i < lcap;i++{
 		userName := fmt.Sprintf("Name%d", i)

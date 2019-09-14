@@ -13,5 +13,5 @@ func Init(){
 
 func initUser(){
 	user := infra.NewUserRepo()
-	User = applicatino.NewUserApp()
+	User = application.NewUserApp(user)
 }

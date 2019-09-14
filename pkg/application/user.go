@@ -5,10 +5,10 @@ import(
 )
 
 type IUserApp interface{
-	GetList()
+	GetList()([]infra.User, error)
 }
 
-type userApp{
+type userApp struct{
 	infra.IUserRepo
 }
 
@@ -16,7 +16,7 @@ func NewUserApp(repo infra.IUserRepo) IUserApp{
 	return &userApp{repo}
 }
 
-type (uapp *userApp) GetList() (,error){
+func (uapp *userApp) GetList() ([]infra.User, error){
 	user, err := uapp.UserList()
 	if err != nil{
 		return nil, err
