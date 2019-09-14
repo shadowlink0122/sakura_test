@@ -5,7 +5,7 @@ import(
 )
 
 type IUserRepo interface{
-	UserList() ([]User, error)
+	UserList() ([]string, error)
 }
 
 type userRepo struct{
@@ -15,19 +15,13 @@ func NewUserRepo() IUserRepo {
 	return &userRepo{}
 }
 
-type User struct{
-	Name string `json:"name"`
-}
-
-func (urepo *userRepo) UserList() ([]User, error) {
+func (urepo *userRepo) UserList() ([]string, error) {
 	lcap := 10
-	userList := make([]User, lcap, lcap)
+	userList := make([]string, lcap, lcap)
 
 	for i := 0;i < lcap;i++{
 		userName := fmt.Sprintf("Name%d", i)
-		user := User{Name: userName}
-
-		userList = append(userList, user)
+		userList = append(userList, userName)
 	}
 
 	return userList, nil

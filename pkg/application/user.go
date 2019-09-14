@@ -1,11 +1,11 @@
 package application
 
 import(
-	"github.com/shadowlink0122/sakura_test/pkg/infra"
+	"sakura_test/pkg/infra"
 )
 
 type IUserApp interface{
-	GetList()([]infra.User, error)
+	GetList()([]string, error)
 }
 
 type userApp struct{
@@ -16,7 +16,7 @@ func NewUserApp(repo infra.IUserRepo) IUserApp{
 	return &userApp{repo}
 }
 
-func (uapp *userApp) GetList() ([]infra.User, error){
+func (uapp *userApp) GetList() ([]string, error){
 	user, err := uapp.UserList()
 	if err != nil{
 		return nil, err

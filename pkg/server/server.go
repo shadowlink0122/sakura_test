@@ -3,9 +3,9 @@ package server
 import(
 	"net/http"
 	"net/http/cgi"
-	
-	"github.com/shadowlink0122/sakura_test/pkg/di"
-	"github.com/shadowlink0122/sakura_test/pkg/handler"
+
+	"sakura_test/pkg/di"
+	"sakura_test/pkg/server/handler"
 )
 
 func Serve(){
@@ -14,5 +14,6 @@ func Serve(){
 	// routing
 	http.HandleFunc("/user", get(handler.UserGet()))
 
+	// run
 	cgi.Serve(nil)
 }

@@ -2,13 +2,18 @@ package handler
 
 import(
 	"log"
+	"net/http"
 
-	"github.com/shadowlink0122/sakura_test/pkg/di"
-	"github.com/shadowlink0122/sakura_test/pkg/server/response"
+	"sakura_test/pkg/di"
+	"sakura_test/pkg/server/response"
 )
 
-type UserGetResponse struct{
-	Users []string `json:"user"`
+type GetUserResponse struct{
+	Users []User `json:"users"`
+}
+
+type User struct{
+	Name string `json:"name"`
 }
 
 func UserGet() http.HandlerFunc {
@@ -20,11 +25,21 @@ func UserGet() http.HandlerFunc {
 			return
 		}
 
+		resp := usersToResponseBody(users)
+
 		response.Success(
 			writer,
-			UserGetResponse{
-				Users: users
-			}
+			resp,
 		)
 	}
+}
+
+func usersToResponseBody(names []string) GetUserResponse {
+	users := make([]User, len(names), len(names))
+	for i, _ := range names {
+		user := User{Name: names[i]}
+		users = append(users, user)
+	}
+
+	return GetUserResponse{Users: users}
 }

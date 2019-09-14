@@ -1,8 +1,8 @@
 package di
 
 import(
-	"github.com/shadowlink0122/sakura_test/pkg/infra"
-	"github.com/shadowlink0122/sakura_test/pkg/application"
+	"sakura_test/pkg/infra"
+	"sakura_test/pkg/application"
 )
 
 var User application.IUserApp
