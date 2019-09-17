@@ -1,6 +1,3 @@
-# CASystem
-CASystemの個人開発用リポジトリ
-
 ## システム構成
 参考文献(https://qiita.com/tozastation/items/a69a102fdc3f62d566b4)
 
