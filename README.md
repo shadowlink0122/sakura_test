@@ -30,3 +30,22 @@ CASystemの個人開発用リポジトリ
         - テスト: Go test
         - モック・スタブ: Go mock
     - データベース: MySQL
+
+
+### SQLの構築
+
+#### Docker
+```
+docker run --name コンテナ名 -p 3333:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
+docker exec -it コンテナ名 bash
+mysql -u root -p -P 3333
+    password
+```
+
+#### ホスト
+MySQL Workbenchでmwbファイルを開く
+
+Database -> ForEngineer
+Stored Connection -> Manage Stored Connections
+ポートフォワーディングの設定を入力
+Continueを押してDocker上のMySQLにDBを作成
