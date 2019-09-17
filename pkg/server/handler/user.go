@@ -1,6 +1,6 @@
 package handler
 
-import(
+import (
 	"log"
 	"net/http"
 
@@ -8,18 +8,19 @@ import(
 	"sakura_test/pkg/server/response"
 )
 
-type GetUserResponse struct{
+type GetUserResponse struct {
 	Users []User `json:"users"`
 }
 
-type User struct{
+type User struct {
 	Name string `json:"name"`
 }
 
-func UserGet() http.HandlerFunc {
-	return func(writer http.ResponseWriter, request *http.Request){
+func GetUser() http.HandlerFunc {
+	return func(writer http.ResponseWriter, request *http.Request) {
+		log.Println("Call GetUser")
 		users, err := di.User.GetList()
-		if err != nil{
+		if err != nil {
 			log.Println(err)
 			response.InternalServerError(writer, "Internal Server Error")
 			return

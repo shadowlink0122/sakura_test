@@ -1,29 +1,29 @@
 package server
 
-import(
+import (
 	"log"
 	"net/http"
-	"net/http/cgi"
 
 	"sakura_test/pkg/di"
 	"sakura_test/pkg/server/handler"
 )
 
-func Serve(){
+func Serve() {
 	di.Init()
 
 	// routing
-	http.HandleFunc("/user", get(handler.UserGet()))
+	http.HandleFunc("/", get(handler.GetMessage()))
+	http.HandleFunc("/user", get(handler.GetUser()))
 
 	// run
 	/* ===== サーバの起動 ===== */
 	log.Println("Server running...")
 	// LocalHost
-	// err := http.ListenAndServe(":8080", nil)
-	// if err != nil {
-	// 	log.Fatalf("Listen and serve failed. %+v", err)
-	// }
+	err := http.ListenAndServe(":8040", nil)
+	if err != nil {
+		log.Fatalf("Listen and serve failed. %+v", err)
+	}
 
 	// CGI
-	cgi.Serve(nil)
+	// cgi.Serve(nil)
 }

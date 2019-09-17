@@ -1,15 +1,10 @@
 package main
 
 import (
-	"net/http/cgi"
-
-	"CASystem/interfaces"
+	"sakura_test/pkg/server"
 )
 
 func main() {
 	// demo
-	interfaces.Serve()
-
-	// Run CGI Server
-	cgi.Serve(nil)
+	server.Serve()
 }
